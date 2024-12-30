@@ -60,4 +60,62 @@
 
 ## Advantages and Disavatages
 
-- Encapsulation:
+### Advantages
+
+- Encapsulation: The FM pattern encapsulates the object creation logic in a separate component or class, proviing a clear separation of responsibilities.
+  It promotes a more modular and organized code structure.
+
+- Flexibility and Extensibility: The pattern allows for easy addition or modificatoiopn of object types without modififying existing client code. New subclasses or specialized factory classes can be introduced to create different variations of objects.
+
+- Dependency inversion: The FM pattern promotes dependency inversion by allowing the client code to depend on abstractions (e.g., abstract factories or interfaces) rather than concrete implemenations.
+  This enhanced code flexibility and maintainbility.
+
+- Code Reusability: The pattern promotes code resusability by providing a consistent and reusable mechanism for creating objects.
+  It avoids duplicating object creation logic throughout the codebase.
+
+- Testing and Mocking: The FM pattern facilitates unit testing and mocking. It allows for the creations of mock or stub objects by implementing a factory class that returns predetermined objects during testing.
+
+### Disadvantages
+
+- Complexities: The introduction of multiple factory classes and subclasses can increase the complexity of the codebase, especially when dealing with a large number of object types or variations.
+  This can make the code harder to understand and maintain.
+
+- Increased Number of classes: Implementing the FM pattern often requires the creation of additional classes, such as abstract factories and concrete factorties.
+  This can lead to an increased number of classes in the codebase, which might add complexity and overhead.
+
+- Indirection: The FM pattern introduces an additional layer of indirection between the client code and the objects being created.
+  This can make the code more abstract and require a deeper understanding of the underlying object creation process.
+
+- Runtime overhead: In some cases, using the FM pattern can introduce a slight runtime overhead due to the need for dynamic object creation and the enviroment of additional classes and method calls.
+
+- Tight coupling with Factories: While the client code is decouppled from the specific objects being created, it becomes tightly coupled to the factories or abstract factory interfaces. Changing the factory hierarchy or interfaces might require modifications in the client code as well.
+
+### Things to Notes
+
+- Abstraction: Define an abstract base class or interface that represents the common interface for all products created by the factory.
+  This abstraction should declare the factory method that subclasses or specialized factory classes will implement.
+
+- Concrate Implemenatation: Create concrete classes that inherit from the abstract base class or interface. Each concrete class represents a specific product that the factory can create. Implement the factory method in each concrete class to return an instance of the coressponding product.
+
+- Factory Class: Implement a factory that encapsulates the object creation logic.
+  The factory class should define the factory method as a static or class method.
+  This method should create and return instances of the desired product based on the client's request or specific conditions.
+
+- Client code: Should interact with the factory through the factory method.
+  It should depend on the abstraction (abstract base class or interface) and not on the concrete product classes.
+  This allows for flexibility and easy subtitution of defferent product type.
+
+- Extensibility: The FM pattern is particularly useful when there is a need to add new product types without modifying existing code.
+  To achive this, new concrete classes representing the aditional product types can be createsd, along with correspoding fractory methods in specialized factory classes.
+
+- Dependency Injection: The FM pattern can be combined with the dependency injection prinples to further decouple the client code from the specific factory implementation.
+  This allows for easy substitution of different factory implementations at runtime.
+
+- Error handling: Consider how to handle scenarios where the FM cannot create the requested object.
+  You can choose to raise an exception, return a default object, or implement a fallback strategy based on the specific requirements of your appllication.
+
+- Naming Conventions: Choose meaningful names for your classes and methods that accurately reflect their purpose and role in the FM pattern.
+  The helps improve code readibilty and maintainability.
+
+- Documenation and Comments: Provide clear and concise documentation for your classes, methods, and interfaces. Explain the purpose of each component and the relationships between the.
+  Additionally, consider adding comments within the code to clarify any complex or critical sectioos.
