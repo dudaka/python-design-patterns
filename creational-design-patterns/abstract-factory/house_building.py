@@ -15,6 +15,8 @@ class Chair(Furniture):
 class Sofa(Furniture):
     def display(self):
         print(f"Sofa: {self.quantity}")
+
+# --------------------------------------------
     
 class Electronic(ABC):
     def __init__(self, quantity):
@@ -31,8 +33,9 @@ class Television(Electronic):
 class Radio(Electronic):
     def display(self):
         print(f"Radio: {self.quantity}")
-    
 
+# --------------------------------------------
+    
 class Decoration(ABC):
     def __init__(self, quantity):
         self.quantity = quantity
